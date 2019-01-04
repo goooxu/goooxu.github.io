@@ -121,7 +121,6 @@ self.onmessage = (event) => {
                 this.workers.forEach((worker, index) => {
                     worker.onmessage = (event) => {
                         const [actualBatchSize, segmentLengths] = event.data;
-                        console.log(actualBatchSize, segmentLengths);
                         this.setState(state => {
                             const batchSize = state.batchSize + actualBatchSize;
                             for (let i = 0; i < Math.min(segmentLengths.length, this.state.segmentSize); i++) {
